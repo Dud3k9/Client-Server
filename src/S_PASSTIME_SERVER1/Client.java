@@ -31,10 +31,8 @@ public class Client {
             sc = SocketChannel.open();
             sc.configureBlocking(false);
             sc.connect(new InetSocketAddress(host, port));
-            while (!sc.finishConnect()) {
-                Thread.sleep(100);
-            }
-        } catch (IOException | InterruptedException e) {
+            while (!sc.finishConnect()) {}
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
